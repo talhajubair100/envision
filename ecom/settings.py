@@ -144,7 +144,7 @@ LOGIN_URL = 'log-in'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'workit600.bd@gmail.com'
-EMAIL_HOST_PASSWORD = 'brothers@18+'
+EMAIL_HOST_PASSWORD = '@brothers@18+'
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'workit600.bd@gmail.com'
 
