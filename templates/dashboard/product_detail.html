@@ -1,0 +1,31 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<div class="card" style="background-color:darkslategrey;">
+    <div class="card-header">Product Detail</div>
+
+    <div class="card-body">
+        <img style="width: 170px; height: 100%; float: left;" src="{{ product.feature_image.url }}" alt="Avatar">
+    <div style="float: right; padding: 10px; width: 80%;">
+        <h2 style="color: white;">{{ product.name }} </h2>
+        <p style="color: white; text-align: justify;"> {{ product.description }} </p>
+        <hr>
+        <div>
+            <p style="color: whitesmoke">Category : {{ product.category }}</p>
+            {% if product.in_stock %}
+            <p style="color: whitesmoke">In Stock : Stock Available</p>
+            {% else %}
+            <p style="color: whitesmoke">In Stock : Stock Unavailable</p>
+
+            {% endif %}
+        </div>
+        <p style="float: right; color: white;">{{ product.created_at }}</p>
+    </div>
+
+    </div>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+
+<br>
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body text-center">
+			<h5>Customer Name: </h5>
+			<hr>
+		
+			<h1 style="padding: 11px">{{customer_profile.user.username}}</h1>
+
+		</div>
+	</div>
+
+	<div class="col-md">
+		<div class="card card-body text-center">
+			<h5>Contact Information</h5>
+			<hr>
+			<p>Email:  {{customer_profile.user.email}}</p>
+			<p>Phone:  {{customer_profile.phone}}</p>
+		</div>
+	</div>
+
+	<div class="col-md">
+		<div class="card card-body text-center">
+			<h5>Total Orders</h5>
+			<hr>
+			<h1 style="text-align: center;padding: 10px">{{ customer_order_count }}</h1>
+		</div>
+	</div>
+</div>
+
+
+<br>
+
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+					<th>Cart ID</th>
+					<th>Tranx id</th>
+					<th>Date Orderd</th>
+					<th>OrderStatus</th>
+					<th>Update</th>
+					<th>Remove</th>
+				</tr>
+				{% for order in customer_order %}
+					<tr>
+						<td>{{ order.cart }}</td>
+						<td>{{order.tranx_id}}</td>
+						<td>{{order.date_created}}</td>
+						{% if order.ordered %}
+					     <td>Complete</td> 
+						 {% else %}
+					     <td>InComplete</td> 
+
+						{% endif %}
+						<td><a class="btn btn-sm btn-info" href="{% url 'order_view' order.id %}">Update</a></td>
+						<td><a class="btn btn-sm btn-danger" href="{% url 'delete_order' order.id %}">Remove</a></td>
+					</tr>
+				{% endfor %} 
+			</table>
+		</div>
+	</div>
+</div>
+	
+
+
+
+{% endblock %}
+
+
+{% comment %} 
+ {% for order_item in order.cart.cart_item.all %}
+						<td>{{ order_item.item }}</td>
+                        {% endfor %} {% endcomment %}

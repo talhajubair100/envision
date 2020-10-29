@@ -1,0 +1,26 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+{% for error in form.error %}
+    <p class="text-danger">{{ error }}</p>
+{% endfor %}
+
+<div class="card" style="background-color: lightslategray">
+    <div class="card-header">New Product Create</div>
+    <div class="card-body">
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for fields in form %}
+                <div class="form-group"></div>
+                {{ fields.label_tag }}
+                {{ fields }}
+            {% endfor %}
+            <br>
+            <input type="submit" value="Submit" class="text-success">
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base/base.html' %}
+
+{% block content  %}
+
+<div class="card" style="background-color: #29363d">
+    <div class="card-header">
+        Product List
+        <a href="{% url 'dashboard-product-create' %}" class="btn btn-success float-right">Create New</a>
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <tr style="background-color: #c2cfd6">
+                <th>S/A</th>
+                <th>Name</th>
+                <th>New Price/Old price</th>
+                <th>Sell Count</th>
+                <th>Category</th>
+                <th>Action</th>
+            </tr>
+            {% for product in  products %}
+                <tr>
+                    <td style="color: #2f96b4">{{ forloop.counter }}</td>
+                    <td><a href="{% url 'dashboard-product-detail' pk=product.pk %}"><h5> {{ product.name }} </h5></a></td>
+                     <td>
+                        <p style="color: aliceblue">{{ product.new_price }} / 
+                        {{ product.old_price }}
+                        </p>
+                     </td>
+                    <td style="color: #2f96b4">{{ product.sell_count }}</td>
+                    <td style="color: aliceblue"> {{ product.category }}</td>
+                     <td>
+                        <a href="{% url 'dashboard-product-edit' pk=product.pk %}" class="btn btn-success"><i class="fas fa-edit"></i></a>
+                        <a href="{% url 'dashboard-product-delete' pk=product.pk %}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,73 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+{% include "home/head_css.html" %}
+
+<body>
+
+
+
+
+	<section class="mainmenu-area stricky">
+		{% include "home/navbar.html" %}
+	</section>
+
+<br>
+<br>
+
+
+
+
+	<section class="flash-sales">
+		
+		<div class="container">
+			<div class="row">
+
+              <div class="align-items-center  mx-auto">
+                    <div class="list-group-flush" style="text-align:center; font-size:18px">
+                        <p class="list-group-item" style="background-color:#103A62; color: white;">
+                            User Edit From {{ user.username }}
+                        </p>
+                		<form action="" method="POST" style="font-size:17px;"><br>
+								{% csrf_token %}
+								{{ form.as_p }}
+								</br>
+								<input type="submit" class="btn btn-primary" value="Submit">
+						</form>
+                        
+                    </div>
+               </div>
+						
+								
+				
+    
+
+			</div>
+		</div>
+	</section>
+<br>
+
+<footer class="main-footer">
+		{% include "home/footer.html" %}
+</footer>
+
+	<!-- Scroll Top Button -->
+	<button class="scroll-top tran3s color2_bg">
+		<span class="fa fa-angle-up"></span>
+	</button>
+	<!-- pre loader  -->
+	<div class="preloader"></div>
+    
+
+  
+
+	{% include "home/js_file.html" %}
+
+</body>
+
+</html>
+
+
+

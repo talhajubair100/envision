@@ -1,0 +1,60 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+{% include "home/head_css.html" %}
+
+<body>
+
+
+
+
+	<section class="mainmenu-area stricky">
+		{% include "home/navbar.html" %}
+	</section>
+
+
+
+
+	<section class="flash-sales">
+		
+		<div class="container">
+			<div class="row">
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Create Profile</h3>
+                    </div><br>
+            <div class="card-body">
+                <form action="" method="POST"><br>
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <input type="submit" value="Submit">
+                </form>
+                        
+            </div>
+        </div>
+
+    
+
+			</div>
+		</div>
+	</section>
+
+
+
+
+	<!-- Scroll Top Button -->
+	<button class="scroll-top tran3s color2_bg">
+		<span class="fa fa-angle-up"></span>
+	</button>
+	<!-- pre loader  -->
+	<div class="preloader"></div>
+
+	{% include "home/js_file.html" %}
+
+</body>
+
+</html>
+

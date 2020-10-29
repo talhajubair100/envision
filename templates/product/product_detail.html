@@ -1,0 +1,137 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+{% include 'home/head_css.html' %}
+<body>
+
+
+
+<div class="fixed-top">
+	{% include "home/navbar.html" %}
+</div>
+
+
+
+
+<br><br><br>
+    <!--Page Title Ends-->
+
+
+    <!-- Product Details Section Begin -->
+    <section class="product-details spad">
+        <div class="container ">
+            <div class="row mb-5">
+                <div class="col-lg-6">
+                    <div class="product__details__pic">
+                        
+                        <div class="product__details__slider__content">
+                            <div class="product__details__pic__slider owl-carousel">
+                                <img data-hash="product-1" class="product__big__img" src="{{ product.feature_image.url }}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="product__details__text">
+                        <h3>{{ product.name }} <span>Categories: {{ product.category }}</span></h3>
+                       
+                        <div class="product__details__price">৳&nbsp;{{ product.new_price }} <span>৳&nbsp;{{ product.old_price }}</span></div>
+                        <p>{{ product.description }}</p>
+
+                       <form action="{% url 'add_to_cart' %}" method="get">
+                        <input type="hidden" name="item_id" value="{{ product.pk }}">
+
+                        <div class="product__details__button">
+                            <div class="quantity">
+                                <span>Quantity:</span>
+                                <div class="pro-qty" style="font-size:14px;">
+                                    <input type="text" name="quantity" value="1" min="0">
+                                </div>
+                            </div>
+							{% if product.in_stock %}
+                            <button class="cart-btn"><span class="fa fa-cart-plus"></span> Add to cart</button>
+							{% else %}
+                            <button class="cart-btn" disabled><span class="fa fa-cart-plus"></span> Add to cart</button>
+							{% endif %}
+                        </div>
+						</form>
+
+                        <div class="product__details__widget">
+                            <ul>
+                                <li>
+                                    <span>Availability:</span>
+                                    <div class="stock__checkbox">
+									{% if product.in_stock %}
+                                        <label for="stockin">
+                                            In Stock
+                                        </label>
+										{% else %}
+										<label for="stockin">
+                                            Out Of Stock
+                                        </label>
+										{% endif %}
+                                    </div>
+                                </li>
+                               
+                              
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row  py-5">
+                <div class="col-lg-12 text-center">
+                    <div class="related__title">
+                        <h5>RELATED <span style="color:#EEAB1E">PRODUCTS</span></h5>
+                    </div>
+                </div>
+                
+				{% for related_product in r_product %}
+
+					<div class="col-lg-3 col-md-4 col-sm-6">
+						<div class="product__item">
+							<div class="product__item__pic set-bg" data-setbg="{{ related_product.feature_image.url }}">
+                            {% if related_product.in_stock %}
+								<div class="label new">Stock Available</div>
+                            {% else %}
+                            <div class="label stockout">Out Of Stock</div>
+                            {% endif %}
+                                <ul class="product__hover">
+									<li><a href="{{ related_product.feature_image.url }}" class="image-popup"><span class="arrow_expand"></span></a></li>
+									<li><a href="{% url 'product-detail' related_product.id %}"><span class="fa fa-eye"></span></a></li>
+						            <li><a href="{% url 'product-detail' related_product.id %}"><span class=""><i class="fa fa-cart-plus" aria-hidden="true"></i></span></a></li>
+								</ul>
+							</div>
+							<div class="product__item__text">
+								<h6><a href="#">{{ related_product.name }}</a></h6>
+								
+								<div class="product__price">৳&nbsp;{{ related_product.new_price }}  <del>৳&nbsp;{{ related_product.old_price }}</del></div>
+							</div>
+						</div>
+					</div>
+
+				{% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- Product Details Section End -->
+
+
+
+<footer class="main-footer">
+		{% include "home/footer.html" %}
+</footer>
+
+
+
+
+
+
+{% include 'home/js_file.html' %}
+
+
+</body>
+
+</html>
+

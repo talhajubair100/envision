@@ -1,0 +1,44 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<br>
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Phone</th>
+					<th>Tranx id</th>
+					<th>Date Orderd</th>
+					<th>Total Amount</th>
+					<th>Order View</th>
+
+				</tr>
+				{% for order in all_order %}
+					<tr>
+						<td>{{ order.cart.user.username|title  }}</td>
+						<td>{{ order.cart.user.email }}</td>
+						<td>{{order.phone}}</td>
+						<td>{{order.tranx_id}}</td>
+                        <td>{{order.date_created | date:"d M, Y"}}</td>
+						<td>{{order.cart.total_price}}</td>
+						<td><a class="btn btn-sm btn-warning" href="{% url 'order_view' order.id %}">View</a></td>
+
+					</tr>
+					
+				{% endfor %} 
+			</table>
+		</div>
+	</div>
+    	<a class="btn btn-primary  btn-sm btn-block" href="{% url 'download_data' %}"><h5>Download to csv</h5></a>
+
+</div>
+	
+
+
+
+{% endblock %}

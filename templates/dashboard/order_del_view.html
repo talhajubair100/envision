@@ -1,0 +1,43 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+
+<br>
+
+<div class="row">
+
+<div class="col-md-12">
+		<h5>LAST 5 ORDERS</h5>
+		<hr>
+		<div class="card card-body">
+			<a class="btn btn-primary  btn-sm btn-block" href="#">Delete Order Page</a>
+			<table class="table table-sm">
+				<tr>
+					<th>username</th>
+					<th>Phone</th>
+					<th>Tranx ID</th>
+					<th>Date Orderd</th>
+					<th>Status</th>
+					<th>Remove</th>
+				</tr>
+				{% for order in del_orders %}
+					<tr>
+						<td>{{order.cart.user.username}}</td>
+						<td>{{order.phone}}</td>
+						<td>{{order.tranx_id}}</td>
+						<td>{{order.date_created}}</td>
+					    <td>{{ order.ordered }}</td> 
+
+						<td><a class="btn btn-sm btn-danger" href="{% url 'delete_order_undo' order.id %}">Cancel Remove</a></td>
+					</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+
+</div>
+
+
+
+{% endblock %}

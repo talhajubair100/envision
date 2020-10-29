@@ -1,0 +1,26 @@
+{% load static %}
+<div class="sidebar">
+    <nav class="sidebar-nav">
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'dashboard' %}"><i class="icon-speedometer"></i> Dashboard</a>
+            </li>
+             <li class="nav-item">
+                <a class="nav-link" href="{% url 'dashboard-product-list' %}"><i class="icon-speedometer"></i> Product-List</a>
+            </li>
+             <li class="nav-item">
+                <a class="nav-link" href="{% url 'dashboard-category-list' %}"><i class="icon-speedometer"></i> Category-List</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{% url 'home' %}">Go To My Site</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{% url 'all_orders' %}">Total Orders</a>
+            </li>
+        </ul>
+    </nav>
+    <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+
+    {% block sidebar %}
+    {% endblock %}
+</div>

@@ -1,0 +1,78 @@
+
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<div class="container">
+	
+		<div class="card card-body text-center">
+				<h3>Update Order for {{ order_obj }}</h3>
+		
+		</div>
+	
+
+</div>
+		<div class="container">
+
+<div class="row">
+	<div class="col-md-6">
+	
+
+		<div class="card card-body">
+			<form action="" method="POST">
+            	{% csrf_token %}
+				{% for field in form %}
+                <div class="form-group">
+					{{field.label_tag}}
+					{{field}}
+				</div>
+				{% endfor %}
+				<hr>
+				<input type="submit" class="btn btn-info">
+			</form>
+		</div>
+	</div>
+	
+
+	
+
+	<div class="col-md-6">
+		<div class="card card-body">
+							<hr>
+         <table class="table table-striped">
+  <thead>
+    <tr>
+	  <th scope="col">#</th>
+      <th scope="col">Item Name</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Total Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for order_item in order_obj.cart.cart_item.all %}
+    <tr>
+		<td> {{ forloop.counter }}</td>
+		<td> {{ order_item.item }}</td>
+		<td> {{ order_item.quantity }}</td>
+		<td> {{ order_item.price }}৳&nbsp;</td>
+			
+    </tr>
+	{% endfor %} 
+    
+   
+  </tbody>
+</table>
+</div>
+<div class="card card-body text-center">
+				<h3>Total:  {{ order_obj.cart.total_price }}৳&nbsp;</h3>
+		</div>
+	
+</div>
+</div
+
+{% endblock %}
+
+
+
+
+

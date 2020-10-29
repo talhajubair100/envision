@@ -1,0 +1,43 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Y-GamingBD</title>
+    <link rel="stylesheet" href="{% static 'css/login_style.css' %}">
+</head>
+<body>
+    <div class="container" id="signup_container">
+        <h1>Create account</h1>
+        <form action="" method="POST" class="login">
+		{% csrf_token %}
+            <p>Name</p>
+            {{ form.username }}
+
+            <p>Email</p>
+            {{ form.email }}
+
+            <p>Password</p>
+            {{ form.password1 }}
+
+            <p>Confirm Password</p>
+            {{ form.password2 }}
+
+            <input type="submit" value="Save"><br>
+            <a href="{% url 'log-in' %}">Already have an account?Login.</a>
+
+
+        </form>
+		{% if messages %}
+		<ul class="messages">
+			{% for message in messages %}
+			<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+			{% endfor %}
+		</ul>
+		{% endif %}
+    </div>
+
+</body>
+</html>

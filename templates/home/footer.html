@@ -1,0 +1,53 @@
+{% load static %}
+
+<section id= "foot">
+<footer class="footer ">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-7">
+                <div class="footer__newslatter">
+                <h6>Payment Mathod</h6>
+                    <div class="footer__logo">
+                       <img class="img img-fluid" src="{% static 'images/payment.png'%}">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-7">
+                <div class="footer__newslatter">
+                <h6>Services</h6>
+                    <img class="img img-fluid" src="{% static 'images/img.png'%}">
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-8 col-sm-8">
+                <div class="footer__newslatter">
+                    <h6>Quick Links</h6>
+                    <div class="footer__social">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-youtube-play"></i></a>
+                        <a href="https://www.instagram.com/ygamingbd/" target="_blank"><i class="fa fa-instagram"></i></a>
+                        <a href="#"><i class="fa fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="footer__copyright__text">
+                    <p>Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved  by <a href="https://www.facebook.com/Envision-It-104102608098871/" target="_blank"><i class="fa fa-heart"></i> Envision IT</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</section>
+
+  <div class="search-model">
+        <div class="h-100 d-flex align-items-center justify-content-center">
+            <div class="search-close-switch">+</div>
+            <form action="/search" method="POST" class="search-model-form">
+                    {% csrf_token %}
+                <input type="text" name="search_keyword" id="search-input" type="submit" placeholder="Search here.....">
+            </form>
+        </div>
+</div>

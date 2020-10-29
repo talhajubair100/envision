@@ -1,0 +1,31 @@
+{% extends 'base/base.html' %}
+
+{% block content  %}
+
+<div class="card" style="background-color: #29363d">
+    <div class="card-header">
+        Category List
+        <a href="{% url 'dashboard-category-create' %}" class="btn btn-success float-right">Create New</a>
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <tr style="background-color: #c2cfd6">
+                <th>S/A</th>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
+            {% for categorie in  categories %}
+                <tr>
+                    <td style="color: #2f96b4">{{ forloop.counter }}</td>
+                    <td><a href=""><h5> {{ categorie.name }} </h5></a></td>
+                     <td>
+                        <a href="{% url 'dashboard-category-edit' pk=categorie.pk %}" class="btn btn-success"><i class="fas fa-edit"></i></a>
+                        <a href="{% url 'dashboard-category-delete' pk=categorie.pk %}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+{% endblock %}
