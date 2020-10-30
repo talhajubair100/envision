@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="{% static 'css/login_style.css' %}">
 </head>
 <body>
+    {% if error %}
+               <p class="text-danger" style="text-align: center">{{ error }}</p>
+     {% endif %}
     <div class="container">
         <h1>Login Here</h1>
         <form action="" method="POST" class="login">
@@ -25,9 +28,7 @@
 
         </form>
     </div>
-	  {% if error %}
-               <p class="text-danger" style="text-align: center">{{ error }}</p>
-     {% endif %}
+	  
 
 	 
 </body>
