@@ -11,11 +11,14 @@
     <link rel="stylesheet" href="{% static 'css/login_style.css' %}">
 </head>
 <body>
-    {% if error %}
-               <p class="text-danger" style="text-align: center">{{ error }}</p>
-     {% endif %}
+    
     <div class="container">
         <h1>Login Here</h1>
+        <br>
+        {% if error %}
+               <p class="text-danger" style="text-align: center">{{ error }}</p>
+     {% endif %}
+     <br>
         <form action="" method="POST" class="login">
 		 {% csrf_token %}
             <p>username</p>

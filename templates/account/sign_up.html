@@ -9,32 +9,36 @@
     <link rel="stylesheet" href="{% static 'css/login_style.css' %}">
 </head>
 <body>
-        {% if messages %}
-		<ul class="messages" style="text-align: center">
-			{% for message in messages %}
-			<p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
-			{% endfor %}
-		</ul>
-		{% endif %}
-
+        
             
 
     <div class="container" id="signup_container">
         <h1>Create account</h1>
+        <br>
+        {% if messages %}
+		<div class="messages" style="text-align: center">
+			{% for message in messages %}
+			<p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+			{% endfor %}
+		</div>
+		{% endif %}
+        <br>
+
+
         <form action="" method="POST" class="login">
 		{% csrf_token %}
-            <p>Name</p>
+            <p> Username</p>
             {{ form.username }}
 
             <p>Email</p>
             {{ form.email }}
 
-            <p>Password</p>
+            <p>Password</p>p
             {{ form.password1 }}
-             <ul>
-            <li style="color:white;">Your password must contain at least 8 characters.</li>
-            <li style="color:white;">Your password should not be similar to username.</li>
-            </ul>
+             
+            <p>Your password must contain at least 8 characters.</p>
+            <p>Your password should not be similar to username.</p>
+            <br>
 
             <p>Confirm Password</p>
             {{ form.password2 }}

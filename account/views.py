@@ -59,7 +59,7 @@ def log_in_view(request):
                 return redirect('/')
             context = {
                 'form': form,
-                'error': "Invalid Email or Password!!",
+                'error': "Invalid Username or Password!!",
             }
             return render(request, 'account/log_in.html', context)
 
@@ -96,7 +96,7 @@ def sign_up_view(request):
             messages.success(request, "Account was created for" + username)
 
             return redirect('log-in')
-        messages.warning(request, "This Username or email already exist plz try again")
+        messages.warning(request, "This Username or email already exist plz try again or password didn't match")
         
     context = {
         'form': form,

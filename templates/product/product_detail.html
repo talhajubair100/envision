@@ -62,11 +62,11 @@
                                     <span>Availability:</span>
                                     <div class="stock__checkbox">
 									{% if product.in_stock %}
-                                        <label for="stockin">
+                                        <label for="stockin" class="text-success">
                                             In Stock
                                         </label>
 										{% else %}
-										<label for="stockin">
+										<label for="stock" class="text-danger">
                                             Out Of Stock
                                         </label>
 										{% endif %}
@@ -104,7 +104,7 @@
 								</ul>
 							</div>
 							<div class="product__item__text">
-								<h6><a href="#">{{ related_product.name }}</a></h6>
+								<h6><a href="{% url 'product-detail' related_product.id %}">{{ related_product.name }}</a></h6>
 								
 								<div class="product__price">৳&nbsp;{{ related_product.new_price }}  <del>৳&nbsp;{{ related_product.old_price }}</del></div>
 							</div>

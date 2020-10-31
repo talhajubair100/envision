@@ -9,7 +9,7 @@ body{
 }
 .container{
     width: 400px;
-    height: 400px;
+    height: 450px;
     background: #103A62;
     top: 50%;
     left: 50%;
@@ -21,7 +21,7 @@ body{
 }
 #signup_container{
     width: 500px;
-    height: 605px; 
+    height: 675px; 
    
 } 
 h1{
@@ -195,6 +195,7 @@ h3{
     .container,  input[type=submit] {
       width: 100%;
       margin-top: 0;
+      
     }
     .account h1{
         margin: 90px 20px;
@@ -226,6 +227,7 @@ h3{
     }
     #signup_container {
         width:100%;
+        height: 95%;
           
     }
 } 

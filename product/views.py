@@ -171,7 +171,8 @@ def checkout(request):
     context = {
              'cart': cart,
              'items': items,
-             'form': form
+             'form': form,
+             'error': "TrxID is already taken",
          }
        
     return render(request, 'product/checkout.html', context)
