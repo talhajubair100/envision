@@ -59,7 +59,7 @@ class CartItem(models.Model):
 
 class Order(models.Model):
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
-    phone = models.CharField(max_length=14)
+    phone = models.CharField(max_length=14, default="+880")
     tranx_id = models.CharField(max_length=50, default="TrxID : ", unique=True)
     notes = models.TextField(blank=True)
     date_created = models.DateTimeField(auto_now_add=True)

@@ -75,19 +75,9 @@
 </div>              <div class="text-dark">
                         <form action="" method="POST" class="p-5">
                         {% csrf_token %}
-                        <h5> Phone Number</h5>
-                       <p>{{ form.phone }}</p>
-                      {% if error %}
-                          <p class="text-danger" style="text-align: center">{{ error }}</p>
-                          {% endif %}
-                        <h5>TrxID</h5>
-                        <p>{{ form.tranx_id }}</p>
+                        {{ form.as_p }}
 
-
-                        <h5>Notes</h5>
-                        <p>{{ form.notes }}</p>
-
-                    <input type="submit" value="Place order" class="primary-btn order-submit">
+                      <input type="submit" value="Place order" class="primary-btn order-submit">
 
                         </form>
                          </div>
