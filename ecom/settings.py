@@ -143,9 +143,9 @@ LOGIN_URL = 'log-in'
 # SMTP Config
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'workit600.bd@gmail.com'
-EMAIL_HOST_PASSWORD = '@brothers@18+'
+EMAIL_HOST_USER = 'info.ygamingbd@gmail.com'
+EMAIL_HOST_PASSWORD = 'u@boy_UA00789'
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'workit600.bd@gmail.com'
+DEFAULT_FROM_EMAIL = 'info.ygamingbd@gmail.com'
 
 

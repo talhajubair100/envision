@@ -1,0 +1,34 @@
+{% extends 'base/base.html' %}
+
+{% block content  %}
+
+<div class="card" style="background-color: #29363d">
+    <div class="card-header">
+        <h5>Category List</h5>
+        
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <tr style="background-color: #c2cfd6">
+                <th>S/A</th>
+                <th>Bkash</th>
+                <th>Rocket</th>
+                <th>Nogod</th>
+                <th>Edit</th>
+
+            </tr>
+            {% for payment in  payments_info %}
+                <tr style="color: #2f96b4">
+                    <td>{{ forloop.counter }}</td>
+                    <td><h5> {{ payment.bkash }} </h5></td>
+                    <td><h5> {{ payment.rocket }} </h5></td>
+                    <td><h5> {{ payment.nogod }} </h5></td>
+                    <td><a href="{% url 'payment_info_edit' pk=payment.pk %}" class="btn btn-success">Edit</a></td>
+
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+{% endblock %}

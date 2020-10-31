@@ -1,5 +1,5 @@
 from django import forms
-from product.models import Item, Category, Order
+from product.models import Item, Category, Order, PaymentInfo, BankInfo
 
 
 class ProductForm(forms.ModelForm):
@@ -42,3 +42,27 @@ class OrderUpdateForm(forms.ModelForm):
             'ordered': forms.CheckboxInput()
         }
        
+
+class PaymentForm(forms.ModelForm):
+    class Meta:
+        model = PaymentInfo
+        fields = '__all__'
+
+        widgets = {
+            'bkash': forms.TextInput(attrs={'class': 'form-control'}),
+            'nogod': forms.TextInput(attrs={'class': 'form-control'}),
+            'rocket': forms.TextInput(attrs={'class': 'form-control'}),
+
+        }
+
+class BankPaymetForm(forms.ModelForm):
+    class Meta:
+        model = BankInfo
+        fields = '__all__'
+
+        widgets = {
+            'bank_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'account_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'account_number': forms.TextInput(attrs={'class': 'form-control'}),
+
+        }

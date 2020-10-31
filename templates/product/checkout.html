@@ -43,14 +43,15 @@
         </button>
       </h5>
     </div>
-
+   
     <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card-body">
-           Bkash- 01400707460 <br>
-           Nogod- 01400707460 <br>
-           Rocket- 01400707460 
+       {% for mobile_info in payment_info %}
+           Bkash- {{ mobile_info.bkash }} <br>
+           Nogod- {{ mobile_info.nogod }} <br>
+           Rocket- {{ mobile_info.rocket }} 
 
-
+      {% endfor %}
       </div>
     </div>
 
@@ -64,8 +65,14 @@
     </div>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
       <div class="card-body">
-      dbbl  1111111111111111111111
-     <br>ebl  11111111111111111111111 
+       {% for info in bank_info %}
+           Bank Name- {{ info.bank_name }} <br>
+           Account Name- {{ info.account_name }} <br>
+           Account Number- {{ info.account_number }} <hr>
+          
+
+           
+      {% endfor %}
 
       </div>
     </div>
@@ -100,7 +107,7 @@
                     {% for item in items %}
                         <div class="order-col">
                         <div>{{ item.quantity }}x {{ item.item.name }}</div>
-                        <div>${{ item.price }}</div>
+                        <div>৳&nbsp;{{ item.price }}</div>
                         </div>
                     {% endfor %} 
                     </div>
@@ -110,7 +117,7 @@
                     </div>
                     <div class="order-col">
                         <div><strong>TOTAL</strong></div>
-                        <div><strong class="order-total">${{ cart.total_price }}</strong></div>
+                        <div><strong class="order-total">৳&nbsp;{{ cart.total_price }}</strong></div>
                     </div>
                     {% comment %} <a href="{% url 'order' %}" class="primary-btn order-submit">Place order</a> {% endcomment %}
 

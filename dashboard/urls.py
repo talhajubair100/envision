@@ -20,4 +20,12 @@ urlpatterns = [
     path('category/create', category_create, name='dashboard-category-create'),
     path('category/edit/<int:pk>', CategoryEditView.as_view(), name='dashboard-category-edit'),
     path('category/delete/<int:pk>', CategoryDeleteView.as_view(), name='dashboard-category-delete'),
+    path('payment-info/list', PaymentInfoListView.as_view(), name='payment_info_list'),
+    path('payment-info/create', payment_info_create, name='payment_info_create'),
+    path('payment/edit/<int:pk>', PaymentInfoEditView.as_view(), name='payment_info_edit'),
+    path('bank-info/list', BankInfoListView.as_view(), name='bank_info_list'),
+    path('bank-info/create', bank_info_create, name='bank_info_create'),
+    path('bank/edit/<int:pk>', BankInfoEditView.as_view(), name='bank_info_edit'),
+
+
 ]

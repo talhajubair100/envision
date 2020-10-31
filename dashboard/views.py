@@ -3,7 +3,7 @@ from django.urls import reverse_lazy
 from product.models import *
 from account.models import Profile
 from django.views.generic import ListView, DetailView, UpdateView, DeleteView
-from .forms import ProductForm, CategoryForm, OrderUpdateForm
+from .forms import ProductForm, CategoryForm, OrderUpdateForm, PaymentForm, BankPaymetForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from account.decorators import allowed_users, admin_only
@@ -220,3 +220,62 @@ class CategoryDeleteView(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('dashboard-category-list')
     context_object_name = 'categorie'
 
+
+@login_required
+@admin_only
+def payment_info_create(request):
+    form = PaymentForm()
+    if request.method == "POST":
+        form = PaymentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('dashboard')
+    context = {
+        'form': form,
+    }
+    return render(request, 'dashboard/payment_info.html', context)
+
+@method_decorator(admin_only, name='dispatch')
+class PaymentInfoListView(LoginRequiredMixin, ListView):
+    model = PaymentInfo
+    fields = '__all__'
+    template_name = 'dashboard/payment_list.html'
+    context_object_name = 'payments_info'
+
+
+@method_decorator(admin_only, name='dispatch')
+class PaymentInfoEditView(LoginRequiredMixin, UpdateView):
+    model = PaymentInfo
+    template_name = 'dashboard/payment_info.html'
+    form_class = PaymentForm
+    success_url = reverse_lazy('payment_info_list')
+
+
+@login_required
+@admin_only
+def bank_info_create(request):
+    form = BankPaymetForm()
+    if request.method == "POST":
+        form = BankPaymetForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('bank_info_list')
+    context = {
+        'form': form,
+    }
+    return render(request, 'dashboard/bank_info.html', context)
+
+@method_decorator(admin_only, name='dispatch')
+class BankInfoListView(LoginRequiredMixin, ListView):
+    model = BankInfo
+    fields = '__all__'
+    template_name = 'dashboard/bank_info_list.html'
+    context_object_name = 'bank_info'
+
+
+@method_decorator(admin_only, name='dispatch')
+class BankInfoEditView(LoginRequiredMixin, UpdateView):
+    model = BankInfo
+    template_name = 'dashboard/bank_info.html'
+    form_class = BankPaymetForm
+    success_url = reverse_lazy('bank_info_list')

@@ -1,0 +1,37 @@
+{% extends 'base/base.html' %}
+
+{% block content  %}
+
+<div class="card" style="background-color: #29363d">
+    <div class="card-header">
+        <h5>Bank Info List</h5>
+        <a href="{% url 'bank_info_create' %}" class="btn btn-success float-right">Create New</a>
+
+        
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <tr style="background-color: #c2cfd6">
+                <th>S/A</th>
+                <th>Bank Name</th>
+                <th>Account Name</th>
+                <th>Account Number</th>
+                <th>Edit</th>
+
+            </tr>
+            {% for bank in  bank_info %}
+                <tr style="color: #2f96b4">
+                    <td>{{ forloop.counter }}</td>
+                    <td><h5> {{ bank.bank_name }} </h5></td>
+                    <td><h5> {{ bank.account_name }} </h5></td>
+                    <td><h5> {{ bank.account_number }} </h5></td>
+
+                    <td><a href="{% url 'bank_info_edit' pk=bank.pk %}" class="btn btn-success">Edit</a></td>
+
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+{% endblock %}

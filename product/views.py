@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.base import View
 from django.shortcuts import get_object_or_404
-from .models import Item, Category, Cart, CartItem, Order
+from .models import Item, Category, Cart, CartItem, Order, PaymentInfo, BankInfo
 from django.http import HttpResponse
 from .forms import OrderFrom
 from django.contrib.auth.decorators import login_required
@@ -128,6 +128,8 @@ class RemoveFromCartView(LoginRequiredMixin, View):
 def checkout(request):
     cart = Cart.objects.get(user=request.user, is_active=True)
     items = CartItem.objects.filter(cart=cart)
+    payment_info = PaymentInfo.objects.all()
+    bank_info = BankInfo.objects.all()
     total_amount = cart.total_price
     print("total price is", total_amount())
     print("cart id is", cart)
@@ -172,6 +174,8 @@ def checkout(request):
              'cart': cart,
              'items': items,
              'form': form,
+             'payment_info': payment_info,
+             'bank_info': bank_info,
              'error': "TrxID is already taken",
          }
        

@@ -60,7 +60,7 @@ class CartItem(models.Model):
 class Order(models.Model):
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
     phone = models.CharField(max_length=14, default="+880")
-    tranx_id = models.CharField(max_length=50, default="TrxID : ", unique=True)
+    tranx_id = models.CharField(max_length=50, default="TrxID :", unique=True)
     notes = models.TextField(blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
     order_note = models.CharField(max_length=100, blank=True, null=True)
@@ -71,3 +71,20 @@ class Order(models.Model):
     def __str__(self):
         return self.cart.user.username
     
+class PaymentInfo(models.Model):
+    bkash = models.CharField(max_length=14)
+    nogod = models.CharField(max_length=14)
+    rocket = models.CharField(max_length=14)
+    
+
+    def __str__(self):
+        return self.bkash
+    
+
+class BankInfo(models.Model):
+    bank_name = models.CharField(max_length=50)
+    account_name = models.CharField(max_length=50)
+    account_number = models.CharField(max_length=15)
+
+    def __str__(self):
+        return self.bank_name
