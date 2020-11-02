@@ -134,7 +134,7 @@
                     <div class="product__item__text">
                         <h6><a href="{% url 'product-detail' feature.id %}">{{ feature.name }} </a></h6>
                         
-                        <div class="product__price">৳&nbsp;{{ feature.new_price }}</div>
+                        <div class="product__price">৳&nbsp;{{ feature.new_price }} <del>৳&nbsp;{{ feature.old_price }}</del></div>
                     </div>
                 </div>
 				

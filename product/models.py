@@ -63,7 +63,7 @@ class Order(models.Model):
     tranx_id = models.CharField(max_length=50, default="TrxID :", unique=True)
     notes = models.TextField(blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
-    order_note = models.CharField(max_length=100, blank=True, null=True)
+    order_note = models.TextField(blank=True, null=True)
     ordered = models.BooleanField(default=False)
     is_delete = models.BooleanField(default=False)
 

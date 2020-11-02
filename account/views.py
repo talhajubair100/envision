@@ -86,7 +86,7 @@ def sign_up_view(request):
             user_profile = Profile.objects.get_or_create(user=user)
             
             subject = "Welcome to Y-Gaming BD"
-            message = f"hi {user.username}, thanks for register this website"
+            message = f"Hi {user.username}, thanks for register Ygaming-BD"
             email_from = settings.EMAIL_HOST_USER
             recipient_list = [user.email, ]
             send_mail(subject, message, email_from, recipient_list)

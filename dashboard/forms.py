@@ -38,7 +38,7 @@ class OrderUpdateForm(forms.ModelForm):
             'phone': forms.TextInput(attrs={'class': 'form-control'}),
             'tranx_id': forms.TextInput(attrs={'class': 'form-control'}),
             'notes': forms.Textarea(attrs={'class': 'form-control'}),
-            'order_note': forms.TextInput(attrs={'class': 'form-control'}),
+            'order_note': forms.Textarea(attrs={'class': 'form-control'}),
             'ordered': forms.CheckboxInput()
         }
        
