@@ -144,7 +144,7 @@ LOGIN_URL = 'log-in'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'info.ygamingbd@gmail.com'
-EMAIL_HOST_PASSWORD = 'u@boy_UA00789'
+EMAIL_HOST_PASSWORD = '**************88'
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'info.ygamingbd@gmail.com'
 
